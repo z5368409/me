@@ -144,7 +144,7 @@ def loops_3():
     def small_list (counter):
         number_list = []
         for i in range(10):
-            number_list.append(counter)
+            number_list.append(str(counter))
         return number_list
 
     big_list = []
@@ -182,7 +182,7 @@ def loops_4():
         number_list = []
         counter = 0
         for i in range(10):
-            number_list.append(counter)
+            number_list.append(str(counter))
             counter += 1
         return number_list
 
@@ -228,7 +228,7 @@ def loops_5():
         small_list = []
         j_num = 0
         for i in range(5):
-            small_list.append("(i" + str(i_num) + ", j" + str(j_num) + ") ")
+            small_list.append("(i" + str(i_num) + ", j" + str(j_num) + ")")
             j_num += 1
         return small_list
 
@@ -262,7 +262,23 @@ def loops_6():
     You can use a variable.
     TIP: look out for the starting condition.
     """
-    return None
+    def stairBuilder (max):
+        small_list = []
+        num = 0
+        for i in range(max):
+            if i < max:
+                small_list.append(str(num))
+            num += 1
+        return small_list
+
+    big_list = []
+    max = 1
+
+    for i in range(10):
+        big_list.append(stairBuilder(max))
+        max += 1
+
+    return big_list
 
 
 def loops_7():
@@ -293,9 +309,9 @@ def loops_7():
 
         for i in range(ranged):
             if i < minimum or i > maximum:
-                small_list.append(" ")
+                small_list.append(str(" "))
             else:
-                small_list.append("*")
+                small_list.append(str("*"))
         return small_list
     
     big_list = []
