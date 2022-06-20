@@ -26,6 +26,17 @@ def binary_search(low, high, actual_number):
 
     # Write your code in here
 
+    my_dict = {"guess":guess, "tries":tries}
+
+    while (low <= high):
+        
+        mid = low + (high - low)/2
+
+        if mid == actual_number:
+            return mid
+        elif mid < low:
+            
+
     return {"guess": guess, "tries": tries}
 
 

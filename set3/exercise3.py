@@ -28,6 +28,61 @@ def advancedGuessingGame():
     Remember to think modular. Try to keep your functions small and single
     purpose if you can!
     """
+    # This function checks if boundaries are valid
+    def BoundaryValidity(upper, lower):
+      Bool = False
+      if str(upper).isnumeric() == True and str(lower).isnumeric() == True:
+        if int(upper) >= int(lower):
+          Bool = True
+        else:
+          print("Your Upper boundary is smaller than Lower boundary!")
+      else:
+        print("Your boundaries are NOT values!")
+      return Bool
+
+    # This function checks if your guess are valid
+    def GuessValidity(Actual, Guess, Upper, Lower):
+      Bool = False
+      if str(Guess).isnumeric() == True:
+        intGuess = int(Guess)
+        intActual = int(Actual)
+
+        if intGuess >= int(Lower) and intGuess <= int(Upper):
+          if intGuess == intActual:
+            Bool = True
+          elif intGuess < intActual:
+            print("Higher")
+          elif intGuess > intActual:
+           print("Lower")
+        else:
+          print("Your guess is outside the boundaries!")
+      else:
+        print("You didn't give me a number!")
+      return Bool
+
+    print("\nWelcome to this game!")
+    print("You must guess numbers between upper and lower boundary.")
+
+    Upper_value = input("Gimme upper boundary: ")
+    Lower_value = input("Gimme lower boundary: ")
+    #print(str(Upper_value)+ " " + str(Lower_value))
+
+    while BoundaryValidity(Upper_value, Lower_value) == False:
+      Upper_value = input("Gimme upper boundary: ")
+      Lower_value = input("Gimme lower boundary: ")
+      #print(str(Upper_value)+ " " + str(Lower_value))
+
+    # Number Randomiser
+    if int(Lower_value) == int(Upper_value):
+      Actual_Num = int(Lower_value)
+    else:
+      Actual_Num = random.randint(int(Lower_value), int(Upper_value))
+    
+    # Guessing Game
+    Guess_num = input("Guess the number: ")
+
+    while GuessValidity(Actual_Num, Guess_num, Upper_value, Lower_value) == False:
+      Guess_num = input("Guess the number: ")
 
     return "You got it!"
     # the tests are looking for the exact string "You got it!". Don't modify that!

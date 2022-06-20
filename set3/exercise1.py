@@ -5,6 +5,9 @@ Modify each function until the tests pass.
 """
 
 
+from pickle import NONE
+
+
 def loop_ranger(start, stop=None, step=1):
     """Return a list of numbers between start and stop in steps of step.
 
@@ -17,7 +20,15 @@ def loop_ranger(start, stop=None, step=1):
     Look up for how range() works in the python docs. You could  answer this
     with just the range function, but we'd like you to do it the long way.
     """
-    return None
+    # range(start: starting value, stop: stop at value, step: increment)
+    num_list = []
+    counter = start
+
+    while counter < stop:
+        num_list.append(counter)
+        counter = counter + step
+
+    return num_list
 
 
 def two_step_ranger(start, stop):
@@ -28,7 +39,12 @@ def two_step_ranger(start, stop):
 
     You can either reuse loop_ranger, or the range function that in the standard library
     """
-    return None
+
+    #num_list = []
+
+    #num_list.append(loop_ranger(start,stop,2))
+
+    return loop_ranger(start,stop,2)
 
 
 def stubborn_asker(low, high):
@@ -39,7 +55,16 @@ def stubborn_asker(low, high):
 
     Look up the docs for a function called "input"
     """
-    return None
+    num_input = int(input("Give me a number between " + str(low) + " and " + str(high) + ": "))
+
+    while num_input > high or num_input < low:
+        #print(str(num_input)+ " is not in range.")
+        num_input = int(input("Give me another number between " + str(low) + " and " + str(high) + ": "))
+
+    #if num_input <= high and num_input >= low:
+        #print(str(num_input)+ " is in range")
+
+    return num_input
 
 
 def not_number_rejector(message):
@@ -49,7 +74,14 @@ def not_number_rejector(message):
     (e.g. "cow", "six", "8!") then throw it out and ask for an actual number.
     When you do get a number, return it.
     """
-    return None
+    # You can't use .isnumeric() unless its on str()
+
+    inputter = input("Gimme number: ")
+
+    while str(inputter).isnumeric() == False:
+        inputter = input("Gimme number: ")
+
+    return inputter
 
 
 def super_asker(low, high):
@@ -58,7 +90,30 @@ def super_asker(low, high):
     Combine what you learnt from stubborn_asker and not_number_rejector
     to make a function that does it all!
     """
-    return None
+    # Checks if its between low and high
+    def low_high_checker(message, low, high):
+        #print("low_high: " + str(message)) #print debugger
+        if message >= low and message <= high:
+            return True
+        else:
+            return False
+
+    # Checks if its a number
+    def number_checker(message, low, high):
+        #print("num checker: " + str(message)) #print debugger
+        if str(message).isnumeric() == True:
+            if low_high_checker(int(message), low, high) == True:
+                return True
+            else:
+                return False
+        else:
+            return False
+
+    message = input("Give me a number between " + str(low) + " and " + str(high) + ": ")
+    while number_checker(message, low, high) == False:
+        message = input("Give me a number between " + str(low) + " and " + str(high) + ": ")
+    
+    return message
 
 
 if __name__ == "__main__":
