@@ -33,11 +33,19 @@ def binary_search(low, high, actual_number):
         mid = low + (high - low)/2
 
         if mid == actual_number:
+            my_dict["guess"] = mid
+            my_dict["tries"] = my_dict["tries"] + 1
             return mid
         elif mid < low:
-            
+            my_dict["guess"] = mid
+            my_dict["tries"] = my_dict["tries"] + 1
+            low = mid + 1
+        else:
+            my_dict["guess"] = mid
+            my_dict["tries"] = my_dict["tries"] + 1
+            high = mid - 1
 
-    return {"guess": guess, "tries": tries}
+    return my_dict["guess"], my_dict["tries"]
 
 
 if __name__ == "__main__":
