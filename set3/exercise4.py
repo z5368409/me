@@ -28,7 +28,7 @@ def binary_search(low, high, actual_number):
 
     my_dict = {"guess":guess, "tries":tries}
 
-    while (low <= high):
+    while low <= high:
         
         mid = low + (high - low)//2 # Huh //2 rounds the number
         #print(low, high, mid, actual_number)
@@ -44,7 +44,7 @@ def binary_search(low, high, actual_number):
             high = mid - 1
 
 
-    return my_dict["guess"], my_dict["tries"]
+    return my_dict
 
 
 if __name__ == "__main__":
