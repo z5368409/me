@@ -11,4 +11,6 @@ Reading through dictionaries can get difficult, if list has [] then integer list
 Parsing through internet values is helpful in extracting data without using unnecessary storage
 
 Soft committed Data set:
-TBD:
+
+TBD: look at to find JSON datasets: https://project-awesome.org/jdorfman/awesome-json-datasets
+Better find other stuff tho

@@ -131,6 +131,7 @@ def pokedex(low=1, high=5):
          get very long. If you are accessing a thing often, assign it to a
          variable and then future access will be easier.
     """
+    
     id = low or high
     url = f"https://pokeapi.co/api/v2/pokemon/{id}"
     r = requests.get(url)
@@ -167,7 +168,7 @@ def diarist():
     def makeFile (Number, FilePath):
         mode = "w"
         historybook = open(FilePath, mode)
-        historybook.write(f"{Number} times the laser has been switched")
+        historybook.write(f"{Number}")
         historybook.close()
 
     makeFile(11, "set4/lasers.pew")
