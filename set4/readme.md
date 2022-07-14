@@ -12,5 +12,9 @@ Parsing through internet values is helpful in extracting data without using unne
 
 Soft committed Data set:
 
-TBD: look at to find JSON datasets: https://project-awesome.org/jdorfman/awesome-json-datasets
-Better find other stuff tho
+POTENTIAL SUBJECT
+- Attendance rate
+https://data.cese.nsw.gov.au/data/dataset/student-attendance-rate-by-school/resource/256334ee-bbae-4c48-b712-52c03a2c3be7
+
+- Major Offenses
+https://data.nsw.gov.au/data/dataset/crime-data-by-offence/resource/46874b06-5cd7-4a23-984a-ae2ce3b2abad

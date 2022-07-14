@@ -27,7 +27,7 @@ def italian_dinner(axiom="tomatoes", guard=6):
     a formal language based on symbol manipulation. They habe much in common
     with formal systems in logic in that:
         1.  they start with an axiom, which is given of the formal system;
-        2.  there are a set of statements inthe formal system which can be
+        2.  there are a set of statements in the formal system which can be
             thought of as theroums of the system; and
         3.  there are a set of rules for transforming any statement which is
             part of the formal system into any other using replacement rules.
@@ -91,6 +91,8 @@ def abba(source="abba", guard=3):
     aobaobbbabbaoaaobbbaoaaobaobaobbba
                 and so on...
     """
+# Currently WIP
+
     def apply_rules(letter, guard):
         """Control the substitution.
 
@@ -98,18 +100,28 @@ def abba(source="abba", guard=3):
 
         Hint: when guard == -1 return the letter.
         """
-        if letter == "a":
-            return "a"
-        elif letter == "b":
-            return "b"
-        elif letter == "o":
-            return "o"
+        if guard > 0:
+            if letter == "a":
+                return "b"
+            elif letter == "b":
+                return "a"
+            
         else:
             return letter
 
-    # write the rest of the function here
-    pass
 
+    # write the rest of the function here
+    List_Letters = list(source)
+
+    Result = list(map(apply_rules,List_Letters[guard], guard))
+    newWord = "o".join(Result)
+
+    guard -= 1
+
+    if guard > 0:
+        return abba(newWord, guard)
+    else:
+        return newWord
 
 def koch(t, order, size):
     """Make turtle t draw a Koch fractal of 'order' and 'size'."""

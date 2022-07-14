@@ -171,7 +171,17 @@ def diarist():
         historybook.write(f"{Number}")
         historybook.close()
 
-    makeFile(11, "set4/lasers.pew")
+    def laserCounter(FilePath):
+        counter = 0
+        mode = "r"
+        Page = open(FilePath, mode)
+        response = Page.read()
+        for codeline in response.splitlines():
+            if "M10 P1" in codeline:
+                counter += 1
+        return counter
+
+    makeFile(laserCounter("set4/trispokedovetiles(laser).gcode"), "set4/lasers.pew")
     pass
 
 
