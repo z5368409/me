@@ -88,5 +88,8 @@ def advancedGuessingGame():
     # the tests are looking for the exact string "You got it!". Don't modify that!
 
 
+#NOTICE:
+# !! Failues on: U&L and Polite Failures !!
+
 if __name__ == "__main__":
     print(advancedGuessingGame())

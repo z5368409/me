@@ -131,8 +131,11 @@ def pokedex(low=1, high=5):
          get very long. If you are accessing a thing often, assign it to a
          variable and then future access will be easier.
     """
+
+    # !! 2 Consult the Pokedex Failures: !!
+    # Victreebel and venusaur 
     
-    id = low or high
+    id = low or high # IDK how to deal with sorting ID between low & High
     url = f"https://pokeapi.co/api/v2/pokemon/{id}"
     r = requests.get(url)
     if r.status_code is 200:

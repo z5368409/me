@@ -6,6 +6,7 @@ Exercises and examples to illustrate recursion.
 
 
 import turtle
+from unittest import result
 
 
 def italian_dinner(axiom="tomatoes", guard=6):
@@ -91,7 +92,8 @@ def abba(source="abba", guard=3):
     aobaobbbabbaoaaobbbaoaaobaobaobbba
                 and so on...
     """
-# Currently WIP
+# Sort of works now
+# Found it: a = bba, b = aob, o = oa
 
     def apply_rules(letter, guard):
         """Control the substitution.
@@ -100,28 +102,36 @@ def abba(source="abba", guard=3):
 
         Hint: when guard == -1 return the letter.
         """
-        if guard > 0:
-            if letter == "a":
-                return "b"
-            elif letter == "b":
-                return "a"
-            
-        else:
-            return letter
+        # Letter is now a list of letters
+        if guard >= 0:
+            if letter[guard] == "a":
+                letter[guard] = "bba"
+            elif letter[guard] == "b":
+                letter[guard] = "aob"
+            elif letter[guard] == "o":
+                letter[guard] = "ao"
 
+            guard -= 1
+            return apply_rules(letter, guard)
+        else:
+           return letter 
 
     # write the rest of the function here
     List_Letters = list(source)
 
-    Result = list(map(apply_rules,List_Letters[guard], guard))
-    newWord = "o".join(Result)
+    #rule applying
+    lastLetter = len(List_Letters) - 1
+    Result = apply_rules(List_Letters, lastLetter)
+
+    new_string = "".join(Result)
 
     guard -= 1
 
     if guard > 0:
-        return abba(newWord, guard)
+        return abba(new_string, guard)
     else:
-        return newWord
+        return new_string
+
 
 def koch(t, order, size):
     """Make turtle t draw a Koch fractal of 'order' and 'size'."""
@@ -153,7 +163,7 @@ def draw_koch(drawing_method, steps_deep=4):
     trace = drawing_method(raphael, order=steps_deep, size=600)
     return trace
 
-
+# Currently WIP
 def square_koch(t, order, size):
     r"""Draw a koch curve with a square rather than a triangular point.
 
@@ -165,6 +175,29 @@ def square_koch(t, order, size):
     """
     trace = ""
     # write the rest of the function here.
+
+    def MakeSquare(FractionSize):
+        """     _
+        Makes _| |_ rather than _/\_
+        """
+        # At least attempts it
+        trace = ""
+
+        trace += square_koch(t, order-1, size/FractionSize)
+        t.left(90)
+        trace += square_koch(t, order-1, size/FractionSize)
+        t.right(90)
+        trace += square_koch(t, order-1, size/FractionSize)
+        t.right(90)
+        trace += square_koch(t, order-1, size/FractionSize)
+        t.left(90)
+        trace += square_koch(t, order-1, size/FractionSize)
+    
+    if order == 0:
+        t.forward(size)
+    else:
+        FractionSize = 3
+        MakeSquare(3)
     return str(order) + trace
     pass
 

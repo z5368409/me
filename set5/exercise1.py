@@ -55,10 +55,9 @@ def get_a_word_of_length_n(length):
 
 # hmm, idk how to use
 def list_of_words_with_lengths(list_of_lengths):
-    if len(list_of_lengths) == 1:
-        return list_of_lengths[0]
-        
+    pyramid_list = []
 
+    
 
     return
 

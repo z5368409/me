@@ -303,6 +303,8 @@ def loops_7():
     lots of diagrams!
     """
 
+    # !! Failure on Building pyramid (Different approach?) !!
+
     def Builder (minimum, maximum):
         ranged = 10
         small_list = []
