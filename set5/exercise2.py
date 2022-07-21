@@ -197,7 +197,7 @@ def square_koch(t, order, size):
         t.forward(size)
     else:
         FractionSize = 3
-        MakeSquare(3)
+        MakeSquare(FractionSize)
     return str(order) + trace
     pass
 
