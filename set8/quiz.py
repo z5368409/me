@@ -11,28 +11,32 @@ import time
 
 def string_please() -> str:
     """Returns a string, anything you like."""
-    return None
+    return "None"
 
 
 def list_please() -> list:
     """Returns a list, anything you like."""
-    return None
+    return [1,2,3]
 
 
 def dictionary_please() -> dict:
     """Returns a dictionary, anything you like."""
-    return None
+    return {"egg":"nog", "Yes":"No"}
 
 
 def is_it_5(some_number) -> bool:
     """Returns True if the argument passed is 5, otherwise returns False."""
-    well_is_it = None
+    if some_number == 5:
+        well_is_it = True
+    else:
+        well_is_it = False
     return well_is_it
 
 
 def take_five(some_number) -> int:
     """Subtracts 5 from some_number."""
-    return None
+    new_num = some_number - 5
+    return new_num
 
 
 def greet(name="Towering Timmy") -> str:
