@@ -318,7 +318,14 @@ def fast_filler(number_of_words=200) -> str:
         is_found.close()
 
     words = []
-    
+
+    if is_found:
+        def randomiser():
+            lines = open(f"set8/{fname}").read().splitlines()
+            return random.choice(lines)
+        
+        for i in range(number_of_words):
+            words.append(randomiser())
 
     return " ".join(words)
 
